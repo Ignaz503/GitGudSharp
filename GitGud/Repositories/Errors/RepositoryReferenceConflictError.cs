@@ -1,0 +1,15 @@
+// Copyright (c) Ignaz503. All rights reserved.
+// Licensed under the MIT License. See LICENSE file in the project root for full license information.
+// SPDX-License-Identifier: MIT
+
+#nullable enable
+
+namespace GitGud.Repositories.Errors;
+
+public sealed class RepositoryReferenceConflictError : RepositoryError
+{
+    public RepositoryReferenceConflictError(string operation, string message, int? exitCode, string? standardError)
+        : base(operation, message, exitCode, standardError)
+    {
+    }
+}

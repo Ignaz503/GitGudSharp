@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{699B5D0E-CB95-4D50-A981-CED92D0FCC51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GitGud</RootNamespace>
+    <AssemblyName>GitGud</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <Nullable>enable</Nullable>
+    <LangVersion>10.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CliWrap, Version=3.10.5.0, Culture=neutral, PublicKeyToken=337a390ad141274e, processorArchitecture=MSIL">
+      <HintPath>..\packages\CliWrap.3.10.5\lib\netstandard2.0\CliWrap.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.8, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.8\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=10.0.0.10, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.10.0.10\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\BaseConfigCollection.cs" />
+    <Compile Include="Config\Errors\ConfigError.cs" />
+    <Compile Include="Config\Errors\ConfigValidationCode.cs" />
+    <Compile Include="Config\Errors\ConfigValidationError.cs" />
+    <Compile Include="Config\FileOption.cs" />
+    <Compile Include="Config\FileOptions.cs" />
+    <Compile Include="Config\ConfigChoice.cs" />
+    <Compile Include="Config\ConfigOutputParser.cs" />
+    <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\IConfigCollection.cs" />
+    <Compile Include="Config\IConfiguration.cs" />
+    <Compile Include="Config\ConfigKey.cs" />
+    <Compile Include="Config\ConfigCommand.cs" />
+    <Compile Include="Config\ConfigEntry.cs" />
+    <Compile Include="Config\Errors\ConfigExecutionError.cs" />
+    <Compile Include="Config\Errors\ConfigProcessError.cs" />
+    <Compile Include="Config\ConfigScope.cs" />
+    <Compile Include="Config\ConfigValue.cs" />
+    <Compile Include="Config\ConfigValueType.cs" />
+    <Compile Include="Config\ICoreConfiguration.cs" />
+    <Compile Include="Config\ParsedConfigEntry.cs" />
+    <Compile Include="Config\Section.cs" />
+    <Compile Include="Config\ValuePattern.cs" />
+    <Compile Include="Constants\Const.Config.cs" />
+    <Compile Include="Branch.cs" />
+    <Compile Include="Constants\Const.Repository.Administration.cs" />
+    <Compile Include="Constants\Const.Repository.Applying.cs" />
+    <Compile Include="Constants\Const.Repository.CherryPickArguments.cs" />
+    <Compile Include="Constants\Const.Repository.CherryPickErrors.cs" />
+    <Compile Include="Constants\Const.Repository.RebaseArguments.cs" />
+    <Compile Include="Constants\Const.Repository.RebaseErrors.cs" />
+    <Compile Include="Constants\Const.Repository.Submodules.cs" />
+    <Compile Include="Git.cs" />
+    <Compile Include="Repositories\Administration\CleanOperations.cs" />
+    <Compile Include="Repositories\Administration\CleanOptions.cs" />
+    <Compile Include="Repositories\Administration\FsCheckFinding.cs" />
+    <Compile Include="Repositories\Administration\FsCheckFindingKind.cs" />
+    <Compile Include="Repositories\Administration\FsCheckObjectKind.cs" />
+    <Compile Include="Repositories\Administration\FsCheckOperations.cs" />
+    <Compile Include="Repositories\Administration\FsCheckOptions.cs" />
+    <Compile Include="Repositories\Administration\FsCheckResult.cs" />
+    <Compile Include="Repositories\Administration\GcOperations.cs" />
+    <Compile Include="Repositories\Administration\GcOptions.cs" />
+    <Compile Include="Repositories\Administration\ICleanOperations.cs" />
+    <Compile Include="Repositories\Administration\IFsCheckOperations.cs" />
+    <Compile Include="Repositories\Administration\IGcOperations.cs" />
+    <Compile Include="Repositories\Applying\ApplyOperations.cs" />
+    <Compile Include="Repositories\Applying\ApplyOptions.cs" />
+    <Compile Include="Repositories\Applying\ApplyWhitespaceMode.cs" />
+    <Compile Include="Repositories\Applying\IApplyOperations.cs" />
+    <Compile Include="Repositories\Branching\BranchNameRules.cs" />
+    <Compile Include="Repositories\Commiting\CherryPickEmptyMode.cs" />
+    <Compile Include="Repositories\Commiting\CherryPickOptions.cs" />
+    <Compile Include="Repositories\Commiting\CherryPickSequencerAction.cs" />
+    <Compile Include="Repositories\Commiting\RebaseEmptyMode.cs" />
+    <Compile Include="Repositories\Commiting\RebaseMergesMode.cs" />
+    <Compile Include="Repositories\Commiting\RebaseMode.cs" />
+    <Compile Include="Repositories\Commiting\RebaseOptions.cs" />
+    <Compile Include="Repositories\IOperationOptions.cs" />
+    <Compile Include="Repositories\Submodules\ISubmoduleOperations.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleAbsorbGitDirsOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleAddOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleDeinitOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleForeachOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleInitOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleOperations.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleOptionsBase.cs" />
+    <Compile Include="Repositories\Submodules\SubmodulePathOptionsBase.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleSetBranchOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleSetUrlOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleState.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleStatusInfo.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleStatusOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleSummaryOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleSyncOptions.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleUpdateMode.cs" />
+    <Compile Include="Repositories\Submodules\SubmoduleUpdateOptions.cs" />
+    <Compile Include="Revision.cs" />
+    <Compile Include="Constants\Const.Repository.Logging.cs" />
+    <Compile Include="Repositories\Logging\LogEnums.cs" />
+    <Compile Include="Repositories\Logging\GitSignature.cs" />
+    <Compile Include="Repositories\Logging\LogOptions.cs" />
+    <Compile Include="Repositories\Logging\LogOperations.cs" />
+    <Compile Include="Repositories\RefDecoration.cs" />
+    <Compile Include="Repositories\Logging\LogFileChange.cs" />
+    <Compile Include="Repositories\Logging\LogEntry.cs" />
+    <Compile Include="Repositories\Logging\ILogOperations.cs" />
+    <Compile Include="Repositories\Logging\LogParser.cs" />
+    <Compile Include="Setup\IGitGlobStatusResult.cs" />
+    <Compile Include="Setup\IResult.cs" />
+    <Compile Include="Setup\LinuxGitGlobalStatus.cs" />
+    <Compile Include="Setup\MacGitGlobalStatus.cs" />
+    <Compile Include="Setup\WindowsGitGlobalStatus.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="Constants\Const.Repository.Tagging.cs" />
+    <Compile Include="Repositories\Tagging\TagOperations.cs" />
+    <Compile Include="Repositories\Tagging\TagKind.cs" />
+    <Compile Include="Repositories\Tagging\DeleteTagOptions.cs" />
+    <Compile Include="CliArguments\CliWrapArgumentBuilder.cs" />
+    <Compile Include="Constants\Const.cs" />
+    <Compile Include="CliArguments\DashedArgument.cs" />
+    <Compile Include="Constants\Const.Init.cs" />
+    <Compile Include="Constants\Const.Init.Errors.cs" />
+    <Compile Include="Constants\Const.Repository.Branching.cs" />
+    <Compile Include="Constants\Const.Repository.cs" />
+    <Compile Include="Constants\Const.Repository.ErrorPatterns.cs" />
+    <Compile Include="Constants\Const.Repository.Merging.cs" />
+    <Compile Include="Constants\Const.Repository.Operations.cs" />
+    <Compile Include="Constants\Const.Repository.Restoring.cs" />
+    <Compile Include="Constants\Const.Repository.Resetting.cs" />
+    <Compile Include="Constants\Const.Repository.Stashing.cs" />
+    <Compile Include="Constants\Const.Setup.cs" />
+    <Compile Include="Constants\Const.Setup.Elevation.cs" />
+    <Compile Include="Constants\Const.Setup.Errors.cs" />
+    <Compile Include="Constants\Const.Setup.Executables.cs" />
+    <Compile Include="Constants\Const.Setup.Operations.cs" />
+    <Compile Include="Constants\Const.Setup.PackageManagers.Actions.cs" />
+    <Compile Include="Constants\Const.Setup.PackageManagers.Arguments.cs" />
+    <Compile Include="Constants\Const.Setup.PackageManagers.cs" />
+    <Compile Include="Constants\Const.Setup.Ssh.cs" />
+    <Compile Include="IRepositorySource.cs" />
+    <Compile Include="Remote.cs" />
+    <Compile Include="Repositories\Commiting\AddOptions.cs" />
+    <Compile Include="Repositories\Branching\BranchInfo.cs" />
+    <Compile Include="Repositories\Branching\BranchScope.cs" />
+    <Compile Include="Repositories\Commiting\CommitOptions.cs" />
+    <Compile Include="Repositories\Branching\CreateBranchOptions.cs" />
+    <Compile Include="Repositories\Tagging\CreateTagOptions.cs" />
+    <Compile Include="Repositories\Branching\DeleteBranchOptions.cs" />
+    <Compile Include="Repositories\Branching\DeleteRemoteBranchOptions.cs" />
+    <Compile Include="Repositories\Errors\RepositoryAuthenticationError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryCancelledError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryDivergentBranchesError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryErrorParser.cs" />
+    <Compile Include="Repositories\Errors\RepositoryExecutionError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryIdentityUnknownError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryIndexLockedError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryLocalChangesError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryMergeConflictError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryNetworkError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryNotARepositoryError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryNotFastForwardError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryNothingToCommitError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryNoUpstreamError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryPushRejectedError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryReferenceConflictError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryRemoteNotFoundError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryUnrelatedHistoriesError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryUntrackedFilesError.cs" />
+    <Compile Include="Repositories\Errors\RepositoryValidationError.cs" />
+    <Compile Include="Repositories\Remotes\FetchOptions.cs" />
+    <Compile Include="Repositories\CommandExecutor.cs" />
+    <Compile Include="Repositories\Tagging\ListTagsOptions.cs" />
+    <Compile Include="Repositories\Tagging\ITagOperations.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\ICloneOptions.cs" />
+    <Compile Include="Init\Initialize.cs" />
+    <Compile Include="Repositories\RepositoryProvider.cs" />
+    <Compile Include="Repositories\ICommandExecutor.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Branching\ListBranchesOptions.cs" />
+    <Compile Include="Repositories\Merging\MergeConflict.cs" />
+    <Compile Include="Repositories\Merging\MergeConflictResolver.cs" />
+    <Compile Include="Repositories\Merging\MergeOptions.cs" />
+    <Compile Include="Repositories\Merging\MergeResolution.cs" />
+    <Compile Include="Repositories\Merging\MergeStrategy.cs" />
+    <Compile Include="Repositories\Branching\BranchOperations.cs" />
+    <Compile Include="Repositories\Commiting\CommitOperations.cs" />
+    <Compile Include="Repositories\Operations\ExecutorExtensions.cs" />
+    <Compile Include="Repositories\Branching\IBranchOperations.cs" />
+    <Compile Include="Repositories\Commiting\ICommitOperations.cs" />
+    <Compile Include="Repositories\Merging\IMergeOperations.cs" />
+    <Compile Include="Repositories\Remotes\IRemoteOperations.cs" />
+    <Compile Include="Repositories\Restoring\IRestoreOperations.cs" />
+    <Compile Include="Repositories\Restoring\RestoreOperations.cs" />
+    <Compile Include="Repositories\Restoring\RestoreOptions.cs" />
+    <Compile Include="Repositories\Reseting\IResetOperations.cs" />
+    <Compile Include="Repositories\Reseting\ResetOperations.cs" />
+    <Compile Include="Repositories\Reseting\ResetOptions.cs" />
+    <Compile Include="Repositories\Reseting\ResetMode.cs" />
+    <Compile Include="Repositories\Branching\BranchTrackMode.cs" />
+    <Compile Include="Repositories\Branching\CopyBranchOptions.cs" />
+    <Compile Include="Repositories\Branching\SetUpstreamOptions.cs" />
+    <Compile Include="Repositories\Tagging\TagCleanupMode.cs" />
+    <Compile Include="Repositories\Tagging\TagInfo.cs" />
+    <Compile Include="Repositories\Branching\UnsetUpstreamOptions.cs" />
+    <Compile Include="Repositories\Branching\DeleteMergedOptions.cs" />
+    <Compile Include="Repositories\Branching\CheckoutBranchOptions.cs" />
+    <Compile Include="Repositories\Branching\SwitchBranchOptions.cs" />
+    <Compile Include="Repositories\Branching\BranchCreateMode.cs" />
+    <Compile Include="Repositories\Branching\BranchConflictStyle.cs" />
+    <Compile Include="Repositories\Diffing\IDiffOperations.cs" />
+    <Compile Include="Repositories\Diffing\DiffOperations.cs" />
+    <Compile Include="Repositories\Diffing\DiffParser.cs" />
+    <Compile Include="Repositories\Diffing\DiffOptions.cs" />
+    <Compile Include="Repositories\Diffing\DiffResult.cs" />
+    <Compile Include="Repositories\Diffing\FileDiff.cs" />
+    <Compile Include="Repositories\Diffing\DiffHunk.cs" />
+    <Compile Include="Repositories\Diffing\DiffLine.cs" />
+    <Compile Include="Repositories\Diffing\DiffLineKind.cs" />
+    <Compile Include="Repositories\Diffing\DiffFileStatus.cs" />
+    <Compile Include="Repositories\Diffing\DiffAlgorithm.cs" />
+    <Compile Include="Repositories\Diffing\DiffWhitespaceMode.cs" />
+    <Compile Include="Constants\Const.Repository.Diffing.cs" />
+    <Compile Include="Repositories\Stashing\IStashOperations.cs" />
+    <Compile Include="Repositories\Merging\MergeOperations.cs" />
+    <Compile Include="Repositories\Remotes\RemoteOperations.cs" />
+    <Compile Include="Repositories\Stashing\StashOperations.cs" />
+    <Compile Include="Repositories\Remotes\PullOptions.cs" />
+    <Compile Include="Repositories\Remotes\PullStrategy.cs" />
+    <Compile Include="Repositories\Remotes\PushOptions.cs" />
+    <Compile Include="Repositories\Branching\RenameBranchOptions.cs" />
+    <Compile Include="Repositories\Branching\RenameRemoteBranchOptions.cs" />
+    <Compile Include="Repositories\Stashing\StashBranchOptions.cs" />
+    <Compile Include="Repositories\Stashing\StashEntryOptions.cs" />
+    <Compile Include="Repositories\Stashing\StashInfo.cs" />
+    <Compile Include="Repositories\Stashing\StashPushOptions.cs" />
+    <Compile Include="Repositories\SubmoduleSpec.cs" />
+    <Compile Include="Repositories\Tagging\VerifyTagOptions.cs" />
+    <Compile Include="Setup\Errors\SetupCancelledError.cs" />
+    <Compile Include="Setup\Errors\SetupElevationRequiredError.cs" />
+    <Compile Include="Setup\GitSetup.cs" />
+    <Compile Include="Setup\SshKeyManager.cs" />
+    <Compile Include="IOperationContext.cs" />
+    <Compile Include="Setup\IGitSetup.cs" />
+    <Compile Include="Setup\IGitSshKeyContext.cs" />
+    <Compile Include="Setup\SshKeyResult.cs" />
+    <Compile Include="Setup\IGitSetupContext.cs" />
+    <Compile Include="Setup\IGitUninstallContext.cs" />
+    <Compile Include="Setup\IGitUpdateContext.cs" />
+    <Compile Include="Init\DefaultOptions.cs" />
+    <Compile Include="Setup\PackageManager.cs" />
+    <Compile Include="Setup\SetupOperation.cs" />
+    <Compile Include="Utility\DirectoryPath.cs" />
+    <Compile Include="CliArguments\DoubleDashedArgument.cs" />
+    <Compile Include="Utility\ElevationHelper.cs" />
+    <Compile Include="Utility\FilePath.cs" />
+    <Compile Include="Errors\BaseError.cs" />
+    <Compile Include="Init\Errors\InitError.cs" />
+    <Compile Include="Init\Errors\InitExecutionError.cs" />
+    <Compile Include="Init\Errors\InitProcessError.cs" />
+    <Compile Include="Init\Errors\InitValidationCode.cs" />
+    <Compile Include="Init\Errors\InitValidationError.cs" />
+    <Compile Include="Setup\Errors\SetupContextError.cs" />
+    <Compile Include="Setup\Errors\SetupError.cs" />
+    <Compile Include="Setup\Errors\SetupExecutionError.cs" />
+    <Compile Include="Setup\Errors\SetupPackageManagerNotFoundError.cs" />
+    <Compile Include="Setup\Errors\SetupPackageManagerNotSupportedError.cs" />
+    <Compile Include="Setup\Errors\SetupProcessError.cs" />
+    <Compile Include="Setup\Errors\SetupSshError.cs" />
+    <Compile Include="CliArguments\ICliArgumentBuilder.cs" />
+    <Compile Include="CliArguments\ICliParameters.cs" />
+    <Compile Include="Errors\IError.cs" />
+    <Compile Include="IGit.cs" />
+    <Compile Include="GlobalUsings.cs" />
+    <Compile Include="Init\IInitOptions.cs" />
+    <Compile Include="IsExternalInit.cs" />
+    <Compile Include="ObjectFormat.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Processes\ProcessRunner.cs" />
+    <Compile Include="RefStorageFormat.cs" />
+    <Compile Include="RepositorySharing.cs" />
+    <Compile Include="SharedState.cs" />
+    <Compile Include="Utility\FilePathHelpers.cs" />
+    <Compile Include="Utility\Nothing.cs" />
+    <Compile Include="Utility\Optional.cs" />
+    <Compile Include="Utility\Pair.cs" />
+    <Compile Include="Utility\RegexPattern.cs" />
+    <Compile Include="Utility\GlobPattern.cs" />
+    <Compile Include="Utility\LineRange.cs" />
+    <Compile Include="Utility\Result.cs" />
+    <Compile Include="Utility\TextHelpers.cs" />
+    <Compile Include="Utility\Url.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".rules\Agent.md" />
+    <None Include=".rules\APIDesign.md" />
+    <None Include=".rules\Architecture.md" />
+    <None Include=".rules\BuildAndCI.md" />
+    <None Include=".rules\CodeOfConduct.md" />
+    <None Include=".rules\CodeReview.md" />
+    <None Include=".rules\Compatibility.md" />
+    <None Include=".rules\Contributing.md" />
+    <None Include=".rules\Dependencies.md" />
+    <None Include=".rules\Documentation.md" />
+    <None Include=".rules\ErrorHandling.md" />
+    <None Include=".rules\GitWorkflows.md" />
+    <None Include=".rules\Glossary.md" />
+    <None Include=".rules\Governance.md" />
+    <None Include=".rules\Logging.md" />
+    <None Include=".rules\Performance.md" />
+    <None Include=".rules\ReleaseProcess.md" />
+    <None Include=".rules\Security.md" />
+    <None Include=".rules\Testing.md" />
+    <None Include="app.config" />
+    <None Include=".rules\CodingStyle.md" />
+    <None Include="packages.config" />
+    <None Include="Repositories\Applying\apply.md" />
+    <None Include="Repositories\Commiting\rebase.md" />
+    <None Include="Repositories\Submodules\submodule.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
